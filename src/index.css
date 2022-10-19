@@ -4,6 +4,8 @@
 *,
 *::after,
 *::before {
+    /* margin: 0;
+    padding: 0; */
     box-sizing: border-box;
 }
 
@@ -52,4 +54,10 @@ h2 {
     padding: 1rem;
     box-shadow: var(--sombra-box);
     border-radius: var(--borda-arredondada);
+}
+
+.limitador {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
 }
