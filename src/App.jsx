@@ -1,8 +1,8 @@
-/* Components */
-import Cabecalho from "./components/Cabecalho/Cabecalho";
-
 /* Roteamenteos */
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+/* Components */
+import Cabecalho from "./components/Cabecalho/Cabecalho";
 
 /* Pages */
 import Home from "./pages/Home/Home";
@@ -21,6 +21,8 @@ const App = () => {
           {/* Switch - Envolve todas as pages que será assync */}
           <Switch>
             {/* Router - Envolve cada page que será trocada, ou seja, ao clicar em cada link do menu trocara, sem precisa carregar tudo novamente */}
+
+            {/* outra forma de fazer rotas <Route exact path="/" component={Home}> */}
             <Route exact path="/">
               <Home />
             </Route>

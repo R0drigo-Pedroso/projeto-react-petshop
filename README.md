@@ -50,3 +50,39 @@ Na 1ª vez, é necessário `npm install` para gerar node_modules (com dependênc
 ### {/_ Router - Envolve cada page que será trocada, ou seja, ao clicar em cada link do menu trocara, sem precisa carregar tudo novamente _/}
 
     <Route exact path="/">
+
+## Uso de rotas com a lib react-router-dom (versão 5)
+
+### Instalação
+
+`npm install react-router-dom@5`
+
+### App.jsx
+
+1. Realizar a importação dos recursos da lib:
+   `import { BrowserRouter, Route, Switch } from "react-router-dom";`
+
+2. Envolver todo o conteúdo do App.jsx dentro do **BrowserRouter**
+
+3. Cada componente que funciona como "página ou tela" deve estar dentro de um `<Route>`.
+
+4. Os `<Route>` devem estar dentro de um `<Switch>` para que aconteça a troca entre componentes ao navegar.
+
+**Obs.:** não coloque nada além de `<Route>` no `<Switch>`
+
+#### Sintaxe alternativa para aplicar rotas:
+
+`<Route exact path="/" component={Home}>`
+
+`<Route path="/produtos" component={Produtos}>`
+
+`<Route path="/sobre" component={Sobre}>`
+
+`<Route path="/contato" component={Contato}>`
+
+### Menu.jsx
+
+1. Importar o NavLink:
+   `import { NavLink } from "react-router-dom";`
+
+2. Substituir a tag `<a>` pelo `<NavLink>` e o atributo `href` por `to`
