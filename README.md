@@ -36,3 +36,17 @@ Na 1ª vez, é necessário `npm install` para gerar node_modules (com dependênc
 ### Components
 
 \*Dentro das pastas `Components` São os fixos
+
+## Roteamentos
+
+### {/_ BrowserRouter - envolve todas as tags _/}
+
+    <BrowserRouter>
+
+### {/_ Switch - Envolve todas as pages que será assync _/}
+
+    <Switch>
+
+### {/_ Router - Envolve cada page que será trocada, ou seja, ao clicar em cada link do menu trocara, sem precisa carregar tudo novamente _/}
+
+    <Route exact path="/">
