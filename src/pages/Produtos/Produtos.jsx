@@ -6,7 +6,7 @@ const Produtos = () => {
     <section>
       <h2 className={estilo.titulo_secao}>Produtos</h2>
 
-      <div className={estilo.produtos}>
+      <div className={estilo.produtos} id="produtos">
         <article>
           <h3>Produtos 01</h3>
           <p>

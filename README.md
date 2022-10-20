@@ -25,3 +25,13 @@ Na 1ª vez, é necessário `npm install` para gerar node_modules (com dependênc
 ### Desktop First:
 
 \*telas de até o tamanho X (max-width)
+
+### Assyc
+
+## Pages
+
+\*As pages são os Router, ou seja, o que fazer as troca dentro da main
+
+## Components
+
+\*Dentro das pastas `Components` São os fixos
