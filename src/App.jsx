@@ -9,6 +9,7 @@ import Home from "./pages/Home/Home";
 import Produtos from "./pages/Produtos/Produtos";
 import Sobre from "./pages/Sobre/Sobre";
 import Contato from "./pages/Contato/Contato";
+import Erro404 from "./pages/Err/Erro404";
 
 const App = () => {
   return (
@@ -37,6 +38,10 @@ const App = () => {
 
             <Route path="/contato">
               <Contato />
+            </Route>
+
+            <Route path="*">
+              <Erro404 />
             </Route>
           </Switch>
         </main>

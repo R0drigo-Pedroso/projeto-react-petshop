@@ -62,7 +62,7 @@ h2 {
     margin: auto;
 }
 
-#sobre, #produtos, #contato {
+#sobre, #produtos, #contato, #err404 {
     width: 100%;
     background-color: #f7f7f7;
     box-shadow: var(--sombra-box);
