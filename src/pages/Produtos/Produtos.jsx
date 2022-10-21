@@ -9,7 +9,7 @@ const Produtos = () => {
     <section>
       <h2 className={estilo.titulo_secao}>Produtos</h2>
 
-      <Caixa listaDeClasses={estilo.produtos} id="produtos">
+      <Caixa listaDeClasses={estilo.produtos}>
         <article>
           <h3>Produtos 01</h3>
           <p>

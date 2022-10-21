@@ -9,7 +9,7 @@ const Contato = () => {
     <section>
       <h2 className={estilo.titulo_secao}>Contato</h2>
 
-      <Caixa id="contato">
+      <Caixa>
         <p>
           <i>Em breve terá uma formulario para preenchimento</i>
         </p>

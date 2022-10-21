@@ -9,7 +9,7 @@ const Sobre = () => {
     <section>
       <h2 className={estilo.titulo_secao}>Sobre</h2>
 
-      <Caixa id="sobre">
+      <Caixa>
         <h3>Missão</h3>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. A error quia

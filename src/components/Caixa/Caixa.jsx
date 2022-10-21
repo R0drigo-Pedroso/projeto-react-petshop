@@ -1,9 +1,10 @@
 import estilo from "./Caixa.module.css";
 
-const Caixa = (props) => {
+/* Versão com props desestruturada */
+const Caixa = ({ children, listaDeClasses }) => {
   return (
-    <div className={`${estilo.form_caixa} ${props.listaDeClasses || ""}`}>
-      {props.children}
+    <div className={`${estilo.form_caixa} ${listaDeClasses || ""}`}>
+      {children}
     </div>
   );
 };

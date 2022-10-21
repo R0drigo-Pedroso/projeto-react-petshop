@@ -86,3 +86,9 @@ Na 1ª vez, é necessário `npm install` para gerar node_modules (com dependênc
    `import { NavLink } from "react-router-dom";`
 
 2. Substituir a tag `<a>` pelo `<NavLink>` e o atributo `href` por `to`
+
+### Criação de um componente de interface chamado Caixa
+
+\*Em vez de usar uma `div` em cada página agrupando conteúdos diferentes, isolamos ela num componente gerérico (**Caixa**), aplicamos o CSS uma única vez usando módulo do componente, e programos através de `props` o carregamento dinâmico do conteúdo (**childen**) e de classes adicionais (**listaDeClasses**)
+
+**Dica:** Você pode usar **destructuring** de objetos nas `props`!

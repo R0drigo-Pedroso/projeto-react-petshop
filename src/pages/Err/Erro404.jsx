@@ -10,7 +10,7 @@ export const Erro404 = () => {
   return (
     <section className={estilo.pagina404}>
       <h2 className={estilo.titulo_secao}>Au, au, au, foi mal!</h2>
-      <Caixa id="err404">
+      <Caixa>
         <h3>Opa! Página não encontrada!</h3>
         <img
           className={estilo.imagem404}
