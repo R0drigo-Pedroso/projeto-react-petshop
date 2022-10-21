@@ -1,12 +1,15 @@
 /* Estilização */
 import estilo from "./Sobre.module.css";
 
+/* Componente */
+import Caixa from "../../components/Caixa/Caixa";
+
 const Sobre = () => {
   return (
     <section>
       <h2 className={estilo.titulo_secao}>Sobre</h2>
 
-      <div id="sobre">
+      <Caixa id="sobre">
         <h3>Missão</h3>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. A error quia
@@ -30,7 +33,7 @@ const Sobre = () => {
           qui molestias rem facere similique, odio voluptatum. Ea laboriosam
           debitis quia culpa consectetur nam porro sapiente quae inventore!
         </p>
-      </div>
+      </Caixa>
     </section>
   );
 };
