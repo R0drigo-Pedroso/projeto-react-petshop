@@ -119,5 +119,7 @@ Após a execução da API, cada array de objetos contido no **arquivo.json** se 
 Exemplos:
 
 http://localhost:3007/categorias
+
 http://localhost:3007/posts
+
 http://localhost:3007/contatos
