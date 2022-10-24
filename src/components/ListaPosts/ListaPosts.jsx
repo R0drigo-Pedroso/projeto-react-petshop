@@ -1,22 +1,31 @@
+/* Usando estados de componentes */
+import { useState, useEffect } from "react"; //Hooks do React
+
+/* Importando api */
 import servidorApi from "../../API/servidor-api";
 
+/* Estilos css */
 import estilo from "./ListaPosts.module.css";
 
 const ListaPosts = () => {
+  /* Iniciamos o state do componente com um array vazio, para posteriomente "preenchê-lo" com os dados vindos da API. Esta atribuição será feita com auxilio do setPosts (set - servirá para manipulação de dados) */
+  const [posts, setPosts] = useState([]);
+
   console.log(servidorApi);
   const postsTemp = [];
 
-  const getPosts = async () => {
-    try {
-      const resposta = await fetch(`${servidorApi}/posts`);
-      const dados = await resposta.json();
-      console.log(dados);
-    } catch (error) {
-      console.log("Deu ruim " + error.message);
+  useEffect(() => {
+    async function getPosts() {
+      try {
+        const resposta = await fetch(`${servidorApi}/posts`);
+        const dados = await resposta.json();
+        setPosts(dados);
+      } catch (error) {
+        console.log("Deu ruim " + error.message);
+      }
     }
-  };
-
-  getPosts();
+    getPosts();
+  }, []);
 
   return (
     <div className={estilo.lista_posts}>
