@@ -26,7 +26,7 @@ const ListaPosts = () => {
 
   /* Sobre useEffect
    *Este hook visa permitir um maior controle sobre "efeitos colaterais" na execução do componente.
-
+A
    Recebe dois parâmetros:
    1º Função callback com o que será executado (monitora o que foi programado).
 
