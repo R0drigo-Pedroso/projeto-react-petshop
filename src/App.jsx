@@ -1,5 +1,5 @@
 /* Roteamenteos */
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 /* Components */
 import Cabecalho from "./components/Cabecalho/Cabecalho";
@@ -10,6 +10,7 @@ import Produtos from "./pages/Produtos/Produtos";
 import Sobre from "./pages/Sobre/Sobre";
 import Contato from "./pages/Contato/Contato";
 import Erro404 from "./pages/Err/Erro404";
+import Post from "./pages/Post/Posts";
 
 const App = () => {
   return (
@@ -26,6 +27,14 @@ const App = () => {
             {/* outra forma de fazer rotas <Route exact path="/" component={Home}> */}
             <Route exact path="/">
               <Home />
+            </Route>
+
+            <Route exact path="/posts">
+              <Redirect to="/" />
+            </Route>
+
+            <Route path="/posts/:id">
+              <Post />
             </Route>
 
             <Route path="/produtos">
