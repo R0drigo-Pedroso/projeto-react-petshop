@@ -3,7 +3,9 @@ import { useState, useEffect } from "react"; //Hooks do React
 
 /* Importando api */
 import servidorApi from "../../API/servidor-api";
+
 import ArtigoPost from "../ArtigoPost/ArtigoPost";
+
 import LoadingCarregamento from "../LoadingCarregamento/LoadingCarregamento";
 
 /* Estilos css */
