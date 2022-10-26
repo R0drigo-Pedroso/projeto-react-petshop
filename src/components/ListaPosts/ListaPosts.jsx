@@ -54,6 +54,7 @@ A
         return (
           <ArtigoPost
             key={id}
+            id={id}
             titulo={titulo}
             subtitulo={subtitulo}
             classe={estilo.post}
