@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"; //Hooks do React
 
 /* Importando api */
 import servidorApi from "../../API/servidor-api";
+import ArtigoPost from "../ArtigoPost/ArtigoPost";
 import LoadingCarregamento from "../LoadingCarregamento/LoadingCarregamento";
 
 /* Estilos css */
@@ -51,10 +52,12 @@ A
       {/* Função utilizando map */}
       {posts.map(({ id, titulo, subtitulo }) => {
         return (
-          <article key={id} className={estilo.post}>
-            <h3>{titulo}</h3>
-            <p>{subtitulo}</p>
-          </article>
+          <ArtigoPost
+            key={id}
+            titulo={titulo}
+            subtitulo={subtitulo}
+            classe={estilo.post}
+          />
         );
       })}
     </div>
@@ -62,3 +65,8 @@ A
 };
 
 export default ListaPosts;
+
+/* <article key={id} className={estilo.post}>
+            <h3>{titulo}</h3>
+            <p>{subtitulo}</p>
+          </article> */
