@@ -41,7 +41,7 @@ export const ListaCategorias = () => {
         {categorias.map(({ id, nome }) => {
           return (
             <li key={id} id={nome}>
-              <Link to={`/categorias/${nome}`}>{nome}</Link>
+              <Link to={`/categoria/${nome}`}>{nome}</Link>
             </li>
           );
         })}

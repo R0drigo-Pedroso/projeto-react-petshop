@@ -11,6 +11,7 @@ import Sobre from "./pages/Sobre/Sobre";
 import Contato from "./pages/Contato/Contato";
 import Erro404 from "./pages/Err/Erro404";
 import Post from "./pages/Post/Posts";
+import Categoria from "./pages/Categoria/Categoria";
 
 const App = () => {
   return (
@@ -35,6 +36,11 @@ const App = () => {
 
             <Route path="/posts/:id">
               <Post />
+            </Route>
+
+            {/* Estamos usando o :nome em vez de :id com o propósito de ter um URL amigável (slug) */}
+            <Route exact path="/categoria/:nome">
+              <Categoria />
             </Route>
 
             <Route path="/produtos">
