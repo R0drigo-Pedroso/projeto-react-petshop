@@ -1,11 +1,10 @@
 /* Usando estados de componentes */
-
 /* Api */
 import servidorApi from "../../API/servidor-api";
 
 /* Estilo CSS */
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import estilo from "./ListaCategorias.module.css";
 
 /* carregamento */
@@ -41,7 +40,9 @@ export const ListaCategorias = () => {
         {categorias.map(({ id, nome }) => {
           return (
             <li key={id} id={nome}>
-              <Link to={`/categoria/${nome}`}>{nome}</Link>
+              <NavLink activeClassName={estilo.ativo} to={`/categoria/${nome}`}>
+                {nome}
+              </NavLink>
             </li>
           );
         })}
