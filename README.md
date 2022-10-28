@@ -149,4 +149,8 @@ Se passar a lista vazia (ou seja, deixar o [] vazio), `useEffect` executará som
 
 ---
 
-##
+### 30 seletores para CSS
+
+https://code.tutsplus.com/pt/tutorials/the-30-css-selectors-you-must-memorize--net-16048
+
+## MUI

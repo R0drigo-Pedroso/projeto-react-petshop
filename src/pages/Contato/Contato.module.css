@@ -2,6 +2,6 @@
     content: "💌 ";
 }
 
-i {
-    font-weight: 600;
+.formulario > div {
+    margin-bottom: 1rem;
 }
