@@ -19,6 +19,7 @@ const ListaPosts = ({ url }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     async function getPosts() {
       try {
         /* const resposta = await fetch(`${servidorApi}/posts`); */
@@ -50,25 +51,29 @@ A
    */
 
   if (loading) {
-    return <LoadingCarregamento />;
+    return <LoadingCarregamento texto="Posts..." />;
   }
 
-  return (
-    <div className={estilo.lista_posts}>
-      {/* Função utilizando map */}
-      {posts.map(({ id, titulo, subtitulo }) => {
-        return (
-          <ArtigoPost
-            key={id}
-            id={id}
-            titulo={titulo}
-            subtitulo={subtitulo}
-            classe={estilo.post}
-          />
-        );
-      })}
-    </div>
-  );
+  if (posts.length !== 0) {
+    return (
+      <div className={estilo.lista_posts}>
+        {/* Função utilizando map */}
+        {posts.map(({ id, titulo, subtitulo }) => {
+          return (
+            <ArtigoPost
+              key={id}
+              id={id}
+              titulo={titulo}
+              subtitulo={subtitulo}
+              classe={estilo.post}
+            />
+          );
+        })}
+      </div>
+    );
+  } else {
+    return <h2>Nenhuma post encontrado</h2>;
+  }
 };
 
 export default ListaPosts;

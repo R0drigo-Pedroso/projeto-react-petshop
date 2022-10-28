@@ -31,7 +31,7 @@ export const ListaCategorias = () => {
   }, []);
 
   if (loading) {
-    return <LoadingCarregamento />;
+    return <LoadingCarregamento texto="Categorias..." />;
   }
 
   return (
