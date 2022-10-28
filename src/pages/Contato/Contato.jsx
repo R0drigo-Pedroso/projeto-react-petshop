@@ -1,6 +1,9 @@
 /* Estilização */
 import estilo from "./Contato.module.css";
 
+/* import Api */
+import servidorApi from "../../API/servidor-api";
+
 /* CSS MUI */
 import { TextField, Button } from "@mui/material";
 
@@ -26,12 +29,44 @@ const Contato = () => {
   const [email, setEmail] = useState("");
   const [mensagem, setMensagem] = useState("");
 
+  const enviarMensagem = async (event) => {
+    event.preventDefault();
+
+    const opcoes = {
+      method: "POST",
+      body: JSON.stringify({ nome, email, mensagem }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    };
+
+    /* Script para envio dos dados para a API */
+    try {
+      await fetch(`${servidorApi}/contatos`, opcoes);
+      alert("Dados enviado com sucesso!");
+    } catch (error) {
+      console.log("Erro ao enviar" + error.mensage);
+    }
+  };
+
+  //let desabilitado = nome ==="" || email ==="" || mensagem==="";
+
+  /* Tootle do botão: caso qualquer um das variáveis seja undefined, desabilitado se manterá true e com isso o botão ficará desabilitado.
+  
+  Quando todas deixarem de ser undefined, desabilitado se tornará false e com isso o batão será habilitado.
+  */
+  let desabilitado = !nome || !email || !mensagem;
+
   return (
     <section>
       <h2 className={estilo.titulo_secao}>Contato</h2>
 
       <Caixa>
-        <form className={estilo.formulario} method="post">
+        <form
+          onSubmit={enviarMensagem}
+          className={estilo.formulario}
+          method="POST"
+        >
           <div>
             <TextField
               onChange={inputNome}
@@ -72,8 +107,8 @@ const Contato = () => {
           </div>
 
           <div>
-            <Button type="submit" variant="contained">
-              Enviar
+            <Button type="submit" variant="contained" disabled={desabilitado}>
+              Enviar Mensagem
             </Button>
           </div>
         </form>
