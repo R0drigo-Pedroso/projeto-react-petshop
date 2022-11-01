@@ -153,4 +153,29 @@ Se passar a lista vazia (ou seja, deixar o [] vazio), `useEffect` executará som
 
 https://code.tutsplus.com/pt/tutorials/the-30-css-selectors-you-must-memorize--net-16048
 
-## MUI
+## MUI: Biblioteca de componentes para React
+
+Site oficial: https://mui.com/pt/material-ui/getting-started/installation/
+
+Instalação: `npm install @mui/material @emotion/react @emotion/styled`
+
+_Dica CSS:_ https://code.tutsplus.com/pt/tutorials/the-30-css-selectors-you-must-memorize--net-16048
+
+---
+
+## Para usar a API via rede local
+
+### package.json
+
+Altere a linha: `"api": "json-server --watch db.json --port 2112"`
+Para: `"api": "json-server --host **NUMERO.IP.DA.SUA.MAQUINA** db.json --port 2112"`
+
+Exemplo: `"api": "json-server --host **NUMERO.IP.DA.SUA.MAQUINA** db.json --port 2112"`
+
+### servidor.api.js
+
+Duplique e comente a linha da constante atual (serverApi).
+
+Na versão descomentada, substitua o `localhost` pelo `número.ip.da.sua.maquina`.
+
+Pare a API no terminal e execute novamente `npm run api`.
