@@ -10,6 +10,7 @@ import { TextField, Button } from "@mui/material";
 /* Componentes */
 import Caixa from "../../components/Caixa/Caixa";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Contato = () => {
   /* Eventos/Função para captura da digitação nos campos */
@@ -29,6 +30,9 @@ const Contato = () => {
   const [email, setEmail] = useState("");
   const [mensagem, setMensagem] = useState("");
 
+  /* Hook necessário para criar uma navegação/redirecionamento manualmente (ou seja, sem depender dos routes) */
+  let history = useHistory();
+
   const enviarMensagem = async (event) => {
     event.preventDefault();
 
@@ -44,9 +48,15 @@ const Contato = () => {
     try {
       await fetch(`${servidorApi}/contatos`, opcoes);
       alert("Dados enviado com sucesso!");
+      history.push("/");
     } catch (error) {
       console.log("Erro ao enviar" + error.mensage);
     }
+
+    /* Limpar campos */
+    setNome("");
+    setEmail("");
+    setMensagem("");
   };
 
   //let desabilitado = nome ==="" || email ==="" || mensagem==="";
@@ -75,7 +85,7 @@ const Contato = () => {
               variant="outlined"
               fullWidth
               required
-              helperText="Nome Obrigatório"
+              helperText={!nome ? "Você deve digitar o nome" : ""}
             />
           </div>
 
@@ -87,7 +97,7 @@ const Contato = () => {
               variant="outlined"
               fullWidth
               required
-              helperText="E-mail Obrigatório"
+              helperText={!email ? "Informe um e-mail de contato" : ""}
             />
           </div>
 
@@ -99,10 +109,9 @@ const Contato = () => {
               variant="outlined"
               fullWidth
               required
-              helperText="Fale conosco"
+              helperText={!mensagem ? "Digite sua mensagem" : ""}
               multiline
               rows={4}
-              defaultValue="Default Value"
             />
           </div>
 
