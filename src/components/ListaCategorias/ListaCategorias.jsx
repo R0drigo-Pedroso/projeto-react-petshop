@@ -19,9 +19,21 @@ export const ListaCategorias = () => {
   useEffect(() => {
     async function getCategorias() {
       try {
-        const resposta = await fetch(`${servidorApi}/categorias`);
+        const resposta = await fetch(`${servidorApi}/categorias.json`);
         const dados = await resposta.json();
-        setCategorias(dados);
+
+        const listaDeCategorias = [];
+
+        for (const categoria in dados) {
+          const objetoCategoria = {
+            id: categoria,
+            nome: dados[categoria].nome,
+          };
+
+          listaDeCategorias.push(objetoCategoria);
+        }
+
+        setCategorias(listaDeCategorias);
         setLoading(false);
       } catch (error) {
         console.log("Deu ruim " + error.message);
