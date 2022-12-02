@@ -12,43 +12,39 @@ import LoadingCarregamento from "../LoadingCarregamento/LoadingCarregamento";
 import estilo from "./ListaPosts.module.css";
 
 const ListaPosts = ({ url }) => {
-  /* Iniciamos o state do componente com um array vazio, para posteriomente "preenchê-lo" com os dados vindos da API. Esta atribuição será feita com auxilio do setPosts (set - servirá para manipulação de dados) */
   const [posts, setPosts] = useState([]);
 
-  /* loading */
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
     async function getPosts() {
       try {
-        /* const resposta = await fetch(`${servidorApi}/posts`); */
-        const resposta = await fetch(`${servidorApi}/${url || "posts"}`);
-        const dados = await resposta.json();
-        setPosts(dados);
+        const resposta = await fetch(`${servidorApi}/posts.json`);
+        const dados = await resposta.json(); /* Objetaão de dados */
+
+        let listaDePosts = [];
+
+        for (const post in dados) {
+          const objetoPost = {
+            id: post /* a chave/string gerada pelo firebase será com um id */,
+            titulo: dados[post].titulo,
+            subtitulo: dados[post].subtitulo,
+            descricao: dados[post].descricao,
+            categoria: dados[post].categoria,
+          };
+
+          listaDePosts.push(objetoPost);
+        }
+
+        setPosts(listaDePosts);
         setLoading(false);
       } catch (error) {
         console.log("Deu ruim " + error.message);
       }
     }
     getPosts();
-
-    /* É necessario indicar a url com dependência pois ela muda toda vez em que uma categoria é clicada.
-    Desta forma, o useEffect "endende" que ele deve executar novamente as suas ações (neste caso, executar novamente o fetch na API)*/
   }, [url]);
-
-  /* Sobre useEffect
-   *Este hook visa permitir um maior controle sobre "efeitos colaterais" na execução do componente.
-A
-   Recebe dois parâmetros:
-   1º Função callback com o que será executado (monitora o que foi programado).
-
-   2º Lista de dependencias que indicarão ao useEffect quando ele deverá funcionar.
-
-   -se não passar a lista (ou seja, se deixar sem []), useEffect executará toda vez que o componente for renderizado. Portanto, o callback se torna um loop o infinito.
-
-   -se passar a lista vazia (ou seja, deixar p [] vazio), useEffect executará somente no momento que o componnte é renderizado pela primeira vez, evitando o loop infinito do callback
-   */
 
   if (loading) {
     return <LoadingCarregamento texto="Posts..." />;
@@ -77,8 +73,3 @@ A
 };
 
 export default ListaPosts;
-
-/* <article key={id} className={estilo.post}>
-            <h3>{titulo}</h3>
-            <p>{subtitulo}</p>
-          </article> */
