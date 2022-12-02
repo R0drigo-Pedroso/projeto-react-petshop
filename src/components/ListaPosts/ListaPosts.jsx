@@ -11,7 +11,7 @@ import LoadingCarregamento from "../LoadingCarregamento/LoadingCarregamento";
 /* Estilos css */
 import estilo from "./ListaPosts.module.css";
 
-const ListaPosts = ({ url }) => {
+const ListaPosts = ({ categoria }) => {
   const [posts, setPosts] = useState([]);
 
   const [loading, setLoading] = useState(true);
@@ -35,6 +35,17 @@ const ListaPosts = ({ url }) => {
           };
 
           listaDePosts.push(objetoPost);
+
+          /* Se categoria for escolhida/clicada */
+          if (categoria) {
+            /* Então vamos fazer uma lista de posts com filtro de categoria */
+
+            /* A cada vez que o loop for é executado, pegamos a categoria de cada post e comparamos com a categoria escolhida pelo usuário */
+            listaDePosts = listaDePosts.filter(
+              /* Se esta comparação for verdadeira, guardamos o post na listaDePosts. Caso contrário, é descartado pelo filtro */
+              (cadaPost) => cadaPost.categoria === categoria
+            );
+          }
         }
 
         setPosts(listaDePosts);
@@ -44,7 +55,7 @@ const ListaPosts = ({ url }) => {
       }
     }
     getPosts();
-  }, [url]);
+  }, [categoria]);
 
   if (loading) {
     return <LoadingCarregamento texto="Posts..." />;

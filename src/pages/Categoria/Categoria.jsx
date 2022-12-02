@@ -5,9 +5,6 @@ import estilo from "./Categoria.module.css";
 import ListaPosts from "../../components/ListaPosts/ListaPosts";
 import ListaCategorias from "../../components/ListaCategorias/ListaCategorias";
 
-/* objetivo deste componente é exibir o listaPosts
-filtrando pela categoria escolhida no meu ListaCategorias
-*/
 const Categoria = () => {
   const { nome } = useParams();
   return (
@@ -16,7 +13,7 @@ const Categoria = () => {
 
       <ListaCategorias />
 
-      <ListaPosts url={`posts?categoria=${nome}`} />
+      <ListaPosts categoria={nome} />
     </section>
   );
 };
